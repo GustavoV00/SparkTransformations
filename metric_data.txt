@@ -8,3 +8,9 @@ tempo_leitura_s, tempo_escrita_s, tempo_total, tamanho_arquivo_entrada, tamanho_
 4.29 sec,0.71 sec,6.94 sec,4.00 KB,4.00 KB,input_data/streaming,output_data/input_data/streaming_json_to_csv,json,csv
 4.54 sec,0.69 sec,7.41 sec,4.00 KB,4.00 KB,input_data/streaming,output_data/input_data/streaming_json_to_csv,json,csv
 3.10 sec,2.11 sec,7.43 sec,4.00 KB,4.00 KB,input_data/Atividades,output_data/input_data/Atividades_parquet_to_csv,parquet,csv
+2.62 sec,1.48 sec,6.44 sec,4.00 KB,4.00 KB,input_data/Atividades,output_data/input_data/Atividades_parquet_to_csv,parquet,csv
+2.63 sec,1.56 sec,6.42 sec,4.00 KB,4.00 KB,input_data/Atividades,output_data/input_data/Atividades_parquet_to_csv,parquet,csv
+4.29 sec,0.85 sec,6.91 sec,4.00 KB,4.00 KB,input_data/streaming,output_data/input_data/streaming_json_to_csv,json,csv
+4.23 sec,0.75 sec,6.99 sec,4.00 KB,4.00 KB,input_data/streaming,output_data/input_data/streaming_json_to_csv,json,csv
+4.37 sec,0.75 sec,6.96 sec,14.39 KB,14.36 KB,input_data/streaming,output_data/input_data/streaming_json_to_csv,json,csv
+4.72 sec,0.56 sec,7.49 sec,444.72 KB,438.26 KB,input_data/Churn,output_data/input_data/Churn_csv_to_json,csv,json

@@ -12,9 +12,18 @@ class SparkMonitor(object):
         self.elapsed_write_time = 0
         self.timer_end = 0
 
-    def get_formatted_file_size(self, file_path):
-        file_size_bytes = os.path.getsize(file_path)
-        return self.format_size(file_size_bytes)
+    # def get_formatted_file_size(self, file_path):
+    #     file_size_bytes = os.path.getsize(file_path)
+    #     print("test: ", file_size_bytes)
+    #     return self.format_size(file_size_bytes)
+
+    def get_directory_size(self, directory_path):
+        total_size = 0
+        for dirpath, dirnames, filenames in os.walk(directory_path):
+            for filename in filenames:
+                filepath = os.path.join(dirpath, filename)
+                total_size += os.path.getsize(filepath)
+        return self.format_size(total_size)
 
     def format_size(self, size_in_bytes):
         units = ["B", "KB", "MB", "GB", "TB"]
@@ -52,8 +61,8 @@ class SparkMonitor(object):
 
     def write_results_to_file(self, in_file_name, out_file_name, in_format, out_format):
         total = self.track_timer() - self.timer_ini
-        input_file_size = self.get_formatted_file_size(in_file_name)
-        output_file_size = self.get_formatted_file_size(out_file_name)
+        input_file_size = self.get_directory_size(in_file_name)
+        output_file_size = self.get_directory_size(out_file_name)
 
         # Write the result to a file
         with open(f"metric_data.txt", "a") as file:

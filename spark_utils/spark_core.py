@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
-from delta import *
+from delta.tables import *
 from delta.pip_utils import configure_spark_with_delta_pip
 
 
@@ -28,7 +28,16 @@ class SparkCore(object):
         self.spark.stop()
 
     def spark_config_with_or_no_delta(self, app_name):
-        return SparkSession.builder.appName(app_name).getOrCreate()
+        return (
+            SparkSession.builder.appName(app_name)
+            # .config("spark.jars.packages", "io.delta:delta-core_2.12:3.0.0")
+            # .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
+            # .config(
+            #     "spark.sql.catalog.spark_catalog",
+            #     "org.apache.spark.sql.delta.catalog.DeltaCatalog",
+            # )
+            .getOrCreate()
+        )
 
     def read_file_to_dataframe(self):
         """

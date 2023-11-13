@@ -24,6 +24,7 @@ def main():
 
     # TODO: If the user insert some name as a result, put a verification here
     output_dir = spark.data_result_dir
+    print(output_dir)
     monitor.write_results_to_file(file_name, output_dir, input_format, output_format)
 
 
