@@ -1,5 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
+from delta import *
+from delta.pip_utils import configure_spark_with_delta_pip
 
 
 # Class is responsible to initialize, create the configurations and stop the the spark
@@ -14,17 +16,19 @@ class SparkCore(object):
         file_name,
         input_format,
         output_format,
-        output_dir,
     ):
-        self.spark = SparkSession.builder.appName(app_name).getOrCreate()
+        self.spark = self.spark_config_with_or_no_delta(app_name)
         self.file_name = file_name
         self.input_format = input_format
         self.output_format = output_format
-        self.output_dir = output_dir
         self.options = self.default_options()
+        self.data_result_dir = ""
 
     def stop_spark(self):
         self.spark.stop()
+
+    def spark_config_with_or_no_delta(self, app_name):
+        return SparkSession.builder.appName(app_name).getOrCreate()
 
     def read_file_to_dataframe(self):
         """
@@ -37,13 +41,17 @@ class SparkCore(object):
             .options(**self.options)
             .load(self.file_name)
         )
-        # return {"inferSchema": "True", "header": "True"}
 
-    def write_file_to_dataframe(self, query_df):
+    def write_file_to_dataframe(self, query_df, file_name):
         """
         A method that writes take a dataframe and write it to a dir
         """
-        query_df.write.format(self.input_format).mode("overwrite").save(self.output_dir)
+        self.data_result_dir = (
+            f"output_data/{file_name}_{self.input_format}_to_{self.output_format}"
+        )
+        query_df.write.format(self.input_format).mode("overwrite").save(
+            self.data_result_dir
+        )
 
     def default_sql(self, table):
         """

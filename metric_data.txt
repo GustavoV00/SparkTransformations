@@ -1,0 +1,10 @@
+tempo_leitura_s, tempo_escrita_s, tempo_total, tamanho_arquivo_entrada, tamanho_arquivo_saida, tamanho_arquivo_gb, nome_dataset, diretorio_saida, forma_de_entrada, formato_de_saida
+4.79 sec,0.40 sec,7.44 sec,1.21 KB,4.00 KB,input_data/Carros.csv,output_data/input_data/Carros.csv_csv_to_paquet,csv,paquet
+4.81 sec,0.40 sec,7.45 sec,1.21 KB,4.00 KB,input_data/Carros.csv,output_data/input_data/Carros.csv_csv_to_delta,csv,delta
+4.47 sec,0.54 sec,6.91 sec,1.21 KB,4.00 KB,input_data/Carros.csv,output_data/input_data/Carros.csv_csv_to_json,csv,json
+4.75 sec,0.40 sec,7.67 sec,1.21 KB,4.00 KB,input_data/Carros.csv,output_data/input_data/Carros.csv_csv_to_json,csv,json
+4.68 sec,0.46 sec,6.89 sec,1.21 KB,4.00 KB,input_data/Carros.csv,output_data/input_data/Carros.csv_csv_to_json,csv,json
+4.71 sec,0.52 sec,7.02 sec,1.21 KB,4.00 KB,input_data/Carros.csv,output_data/input_data/Carros.csv_csv_to_json,csv,json
+4.29 sec,0.71 sec,6.94 sec,4.00 KB,4.00 KB,input_data/streaming,output_data/input_data/streaming_json_to_csv,json,csv
+4.54 sec,0.69 sec,7.41 sec,4.00 KB,4.00 KB,input_data/streaming,output_data/input_data/streaming_json_to_csv,json,csv
+3.10 sec,2.11 sec,7.43 sec,4.00 KB,4.00 KB,input_data/Atividades,output_data/input_data/Atividades_parquet_to_csv,parquet,csv

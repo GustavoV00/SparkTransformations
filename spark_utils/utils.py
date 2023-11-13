@@ -12,6 +12,5 @@ def read_args_from_argv():
     file_name = sys.argv[1]
     input_format = sys.argv[2]
     output_format = sys.argv[3]
-    output_dir = sys.argv[4]
 
-    return [file_name, input_format, output_format, output_dir]
+    return [file_name, input_format, output_format]
