@@ -13,6 +13,9 @@ python3 starter.py -r input_data/Churn csv delta
 python3 starter.py -r input_data/Iris csv json
 python3 starter.py -r input_data/Iris csv parquet
 python3 starter.py -r input_data/Iris csv delta
-python3 starter.py -r input_data/Mongo json csv
-python3 starter.py -r input_data/Mongo json parquet
-python3 starter.py -r input_data/Mongo json delta
+
+
+# Problem with json - Needs to fix this on code later
+# python3 starter.py -r input_data/Mongo json csv
+# python3 starter.py -r input_data/Mongo json parquet
+# python3 starter.py -r input_data/Mongo json delta
