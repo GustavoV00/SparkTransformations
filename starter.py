@@ -26,20 +26,20 @@ def show_usage():
 def run_python_code(args):
     print("Running...")
     print(args)
-    subprocess.run(["spark-submit", "app.py"] + args)
-    # subprocess.run(
-    #     [
-    #         "spark-submit",
-    #         "--packages",
-    #         "io.delta:delta-core_2.12:3.0.0",
-    #         "--conf",
-    #         "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension",
-    #         "--conf",
-    #         "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog",
-    #         "app.py",
-    #     ]
-    #     + args
-    # )
+    # subprocess.run(["spark-submit", "app.py"] + args)
+    subprocess.run(
+        [
+            "spark-submit",
+            "--packages",
+            "io.delta:delta-core_2.12:2.4.0",
+            "--conf",
+            "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension",
+            "--conf",
+            "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog",
+            "app.py",
+        ]
+        + args
+    )
 
 
 # Parse command line options
