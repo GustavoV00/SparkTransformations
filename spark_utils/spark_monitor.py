@@ -34,7 +34,7 @@ class SparkMonitor(object):
             size /= 1024.0
             unit_index += 1
 
-        formatted_size = f"{size:.2f} {units[unit_index]}"
+        formatted_size = f"{size} {units[unit_index]}"
         return formatted_size
 
     def format_time(self, duration_seconds):

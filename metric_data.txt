@@ -1,1 +1,6 @@
 tempo_leitura_s, tempo_escrita_s, tempo_total, tamanho_arquivo_entrada, tamanho_arquivo_saida, tamanho_arquivo_gb, nome_dataset, diretorio_saida, forma_de_entrada, formato_de_saida
+4.82 sec,1.06 sec,8.09 sec,1.2060546875 KB,3.8623046875 KB,input_data/Carro,output_data/input_data/Carro_csv_to_parquet,csv,parquet
+4.73 sec,1.32 sec,8.09 sec,1.2060546875 KB,3.8623046875 KB,input_data/Carro,output_data/input_data/Carro_csv_to_parquet,csv,parquet
+4.88 sec,0.49 sec,7.69 sec,1.2060546875 KB,5.072265625 KB,input_data/Carro,output_data/input_data/Carro_csv_to_json,csv,json
+4.77 sec,8.70 sec,17.98 sec,1.2060546875 KB,6.11328125 KB,input_data/Carro,output_data/input_data/Carro_csv_to_delta,csv,delta
+4.77 sec,13.00 sec,20.21 sec,1.2060546875 KB,11.3056640625 KB,input_data/Carro,output_data/input_data/Carro_csv_to_delta,csv,delta

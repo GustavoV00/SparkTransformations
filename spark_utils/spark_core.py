@@ -61,7 +61,7 @@ class SparkCore(object):
         self.data_result_dir = (
             f"output_data/{file_name}_{self.input_format}_to_{self.output_format}"
         )
-        query_df.write.format(self.input_format).mode("overwrite").save(
+        query_df.write.format(self.output_format).mode("overwrite").save(
             self.data_result_dir
         )
 

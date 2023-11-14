@@ -13,6 +13,9 @@ python3 starter.py -r input_data/Churn csv delta
 python3 starter.py -r input_data/Iris csv json
 python3 starter.py -r input_data/Iris csv parquet
 python3 starter.py -r input_data/Iris csv delta
+python3 starter.py -r input_data/Saude_2022 csv parquet
+python3 starter.py -r input_data/Saude_2022 csv json
+python3 starter.py -r input_data/Saude_2022 csv delta
 
 
 # Problem with json - Needs to fix this on code later

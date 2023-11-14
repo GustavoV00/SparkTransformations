@@ -32,6 +32,8 @@ def run_python_code(args):
             "spark-submit",
             "--packages",
             "io.delta:delta-core_2.12:2.4.0",
+            "--packages",
+            "io.delta:delta-spark_2.12:3.0.0",
             "--conf",
             "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension",
             "--conf",
