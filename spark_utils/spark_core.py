@@ -1,3 +1,4 @@
+import re
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from delta import *
@@ -96,3 +97,7 @@ class SparkCore(object):
         table = "saude"
         df.createOrReplaceTempView(table)
         return self.spark.sql(self.default_sql(table))
+
+    def clean_columns_format(self, df):
+        cleaned_columns = [re.sub(r"[ ,;{}()\n\t=]", "_", col) for col in df.columns]
+        return df.toDF(*cleaned_columns)

@@ -14,10 +14,12 @@ def main():
     df = spark.read_file_to_dataframe()
     monitor.track_read_time()
 
-    # query_df = spark.create_view_and_query(df)
+    query_df = spark.create_view_and_query(df)
+    if output_format == "delta":
+        query_df = spark.clean_columns_format(query_df)
 
     monitor.start_write_timer()
-    spark.write_file_to_dataframe(df, file_name)
+    spark.write_file_to_dataframe(query_df, file_name)
     monitor.track_write_time()
 
     spark.stop_spark()

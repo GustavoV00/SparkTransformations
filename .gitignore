@@ -160,4 +160,5 @@ cython_debug/
 #.idea/
 
 output_data/
+input_data/Saude_*
 saude/
