@@ -34,15 +34,15 @@ class SparkMonitor(object):
             size /= 1024.0
             unit_index += 1
 
-        formatted_size = f"{size} {units[unit_index]}"
+        formatted_size = f"{size:.5f} {units[unit_index]}"
         return formatted_size
 
     def format_time(self, duration_seconds):
         if duration_seconds < 60:
-            return f"{duration_seconds:.2f} sec"
+            return f"{duration_seconds:.4f} sec"
         else:
-            duration_minutes = duration_seconds / 60.0
-            return f"{duration_minutes:.2f} min"
+            minutes, seconds = divmod(duration_seconds, 60)
+            return f"{minutes} min e {seconds:.2f} sec"
 
     def track_timer(self):
         return time.time()

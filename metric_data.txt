@@ -1,2 +1,2 @@
 tempo_leitura_s, tempo_escrita_s, tempo_total, tamanho_arquivo_entrada, tamanho_arquivo_saida, tamanho_arquivo_gb, nome_dataset, diretorio_saida, forma_de_entrada, formato_de_saida
-3.73 min,6.50 min,10.28 min,12.938659567385912 GB,5.719375547021627 GB,input_data/Saude_2022,output_data/input_data/Saude_2022_csv_to_delta,csv,delta
+7.9075 sec,1.0276 sec,15.5589 sec,14.38770 KB,8.29395 KB,input_data/Streaming,output_data/input_data/Streaming_json_to_csv,json,csv
