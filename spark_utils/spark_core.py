@@ -33,12 +33,23 @@ class SparkCore(object):
 
         # To when i need to test something with unittest
         builder = (
-            SparkSession.builder.appName("MyApp")
-            .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
-            .config(
-                "spark.sql.catalog.spark_catalog",
-                "org.apache.spark.sql.delta.catalog.DeltaCatalog",
-            )
+            SparkSession.builder.appName("MyApp").master("spark://172.31.29.127:7077")
+            # .config("spark.driver.host", "172.31.29.127:7077")
+            # .config("spark.hadoop.fs.s3a.access.key", "minioadmin")
+            # .config("spark.hadoop.fs.s3a.secret.key", "minioadmin")
+            # .config("spark.hadoop.fs.s3a.endpoint", "172.31.29.127:9000")
+            # .config(
+            #     "spark.hadoop.fs.s3a.path.style.access", "true"
+            # )
+            # .config("spark.shuffle.service.enabled", "false")
+            # .config("spark.dynamicAllocation.enabled", "false")
+            # .config("spark.master.memory", "4g")
+            # .config("spark.executor.memory", "4g")
+            # .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
+            # .config(
+            #     "spark.sql.catalog.spark_catalog",
+            #     "org.apache.spark.sql.delta.catalog.DeltaCatalog",
+            # )
         )
 
         return configure_spark_with_delta_pip(builder).getOrCreate()

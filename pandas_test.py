@@ -1,4 +1,5 @@
 import pandas as pd
+import dask.dataframe as dd
 import time
 import sys
 
@@ -19,7 +20,7 @@ if __name__ == "__main__":
     file_path = sys.argv[1]
 
     start_time = time.time()
-    data = pd.read_csv(file_path)
+    data = pd.read_csv(file_path, encoding="latin-1")
     elapsed_time = time.time() - start_time
 
     print(f"Tempo para ler o arquivo CSV: {format_time(elapsed_time)}")
