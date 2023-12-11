@@ -26,22 +26,23 @@ def show_usage():
 def run_python_code(args):
     print("Running...")
     print(args)
-    subprocess.run(["spark-submit", "app.py"] + args)
-    # subprocess.run(
-    #     [
-    #         "spark-submit",
-    #         "--master",
-    #         "spark://172.31.29.127:7077",
-    #         "--packages",
-    #         "io.delta:delta-core_2.12:2.4.0,io.delta:delta-spark_2.12:3.0.0,org.apache.hadoop:hadoop-aws:3.3.4,org.apache.spark:spark-connect_2.12:3.5.0",
-    #         "--conf",
-    #         "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension",
-    #         "--conf",
-    #         "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog",
-    #         "app.py",
-    #     ]
-    #     + args
-    # )
+    # subprocess.run(["spark-submit", "app.py"] + args)
+    # io.delta:delta-core_2.12:2.4.0 -> N preciso desta lib ?
+    subprocess.run(
+        [
+            "spark-submit",
+            # "--master",
+            # "spark://172.31.29.127:7077",
+            "--packages",
+            "io.delta:delta-spark_2.12:3.0.0,org.apache.hadoop:hadoop-aws:3.3.4",# #,org.apache.spark:spark-connect_2.12:3.5.0",
+            "--conf",
+            "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension",
+            "--conf",
+            "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog",
+            "app.py",
+        ]
+        + args
+    )
 
 
 # Parse command line options

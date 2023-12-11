@@ -1,3 +1,4 @@
+import minio
 import sys
 
 
@@ -14,3 +15,7 @@ def read_args_from_argv():
     output_format = sys.argv[3]
 
     return [file_name, input_format, output_format]
+
+
+def parse_file_name(file_name):
+    return file_name.split("/")[-1]

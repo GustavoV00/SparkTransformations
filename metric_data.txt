@@ -1,2 +1,5 @@
 tempo_leitura_s, tempo_escrita_s, tempo_total, tamanho_arquivo_entrada, tamanho_arquivo_saida, tamanho_arquivo_gb, nome_dataset, diretorio_saida, forma_de_entrada, formato_de_saida
-7.9075 sec,1.0276 sec,15.5589 sec,14.38770 KB,8.29395 KB,input_data/Streaming,output_data/input_data/Streaming_json_to_csv,json,csv
+37.0405 sec,4.0165 sec,48.5875 sec,0.00000 B,0.00000 B,Churn.csv,s3a://ici/from_spark/Churn.csv_csv_to_json,csv,json
+38.3693 sec,4.1883 sec,50.1165 sec,0.00000 B,0.00000 B,Churn.csv,s3a://ici/from_spark/Churn.csv_csv_to_json,csv,json
+26.6698 sec,4.9297 sec,39.5543 sec,0.00000 B,0.00000 B,Churn.csv,s3a://ici/from_spark/Churn.csv_csv_to_json,csv,json
+4.0 min e 16.85 sec,51.0 min e 10.59 sec,55.0 min e 35.62 sec,0.00000 B,0.00000 B,Saude_2022,s3a://ici/from_spark/Saude_2022_csv_to_parquet,csv,parquet

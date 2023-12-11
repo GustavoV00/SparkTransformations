@@ -1,4 +1,5 @@
 import re
+import os
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from delta import *
@@ -34,22 +35,24 @@ class SparkCore(object):
         # To when i need to test something with unittest
         builder = (
             SparkSession.builder.appName("MyApp").master("spark://172.31.29.127:7077")
-            # .config("spark.driver.host", "172.31.29.127:7077")
-            # .config("spark.hadoop.fs.s3a.access.key", "minioadmin")
-            # .config("spark.hadoop.fs.s3a.secret.key", "minioadmin")
-            # .config("spark.hadoop.fs.s3a.endpoint", "172.31.29.127:9000")
-            # .config(
-            #     "spark.hadoop.fs.s3a.path.style.access", "true"
-            # )
+            .config("spark.hadoop.fs.s3a.endpoint", "http://172.31.29.127:9000/")
+            .config("spark.hadoop.fs.s3a.access.key", "minioadmin")
+            .config("spark.hadoop.fs.s3a.secret.key", "minioadmin" )
+            .config("spark.hadoop.fs.s3a.path.style.access", "true")
+            .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
+            # .config("spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled", "true")
+            # .config("spark.shuffle.service.enabled", "true")
+            # .config("spark.dynamicAllocation.enabled", "true")
             # .config("spark.shuffle.service.enabled", "false")
-            # .config("spark.dynamicAllocation.enabled", "false")
-            # .config("spark.master.memory", "4g")
-            # .config("spark.executor.memory", "4g")
             # .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
             # .config(
             #     "spark.sql.catalog.spark_catalog",
             #     "org.apache.spark.sql.delta.catalog.DeltaCatalog",
             # )
+            # .config("spark.driver.host", "172.31.29.127:7077")
+            # .config("spark.dynamicAllocation.enabled", "false")
+            # .config("spark.master.memory", "4g")
+            # .config("spark.executor.memory", "4g")
         )
 
         return configure_spark_with_delta_pip(builder).getOrCreate()
@@ -71,7 +74,7 @@ class SparkCore(object):
         A method that writes take a dataframe and write it to a dir
         """
         self.data_result_dir = (
-            f"output_data/{file_name}_{self.input_format}_to_{self.output_format}"
+            f"s3a://ici/from_spark/{file_name}_{self.input_format}_to_{self.output_format}"
         )
         query_df.write.format(self.output_format).mode("overwrite").save(
             self.data_result_dir
